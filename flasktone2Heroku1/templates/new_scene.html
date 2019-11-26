@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Create A New Scene</title> 
+{% endblock %}
+
+{% block body %}
+
+    <hr>
+    <h1>Create New Game Scene</h1>
+    <form action='/posts' method='POST'>
+        <label for="title">Title:</label>
+        <input class="form-control" type="text" name='title' id='title' placeholder="Enter a Title" aria-label="Enter a Title">
+        <br>
+        <label for="author">Author:</label>
+        <input class="form-control" type="text" name='author' id='author' placeholder="Enter an Author" aria-label="Enter an Author">
+        <br>
+        <label for="content">Post:</label>
+        <textarea class="form-control" name='content' id="content" placeholder="Enter Scene Content" aria-label="Enter Scene Content" rows="3"></textarea>
+        <br>
+        <input type='submit' value='Post'>
+    </form>
+    <hr>
+{% endblock %}

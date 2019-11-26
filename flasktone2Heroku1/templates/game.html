@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Game Scenes Actions</title>
+{% endblock %}
+
+
+
+{% block body %}
+<h1> Game: Scenes & Actions</h1>
+
+    <hr>
+    <h2>Your Action</h2>
+    <h6>What does your character do in this scene?</h6>
+    <h6>note: this is going to be connected to a new database</h6>
+    <h6>for character actions</h6>
+    <h6>and the text boxes here at the top will a new page that is triggered</h6>
+    <h6>by the buttons below, linked to a specific scene</h6>
+
+    <br>
+    <form action='/posts' method='POST'>
+        <input class="form-control" type='text' name='title' id='title' placeholder="Enter a Scene Name" aria-label="Enter a Scene Name">
+        <br>
+        <input class="form-control" type='text' name='author' id='author' placeholder="Enter Player & Character Name" aria-label="Enter Player & Character Name">
+        <br>
+        <textarea class="form-control" name='post' id='post' rows="3" placeholder="Describe Your Action" aria-label="Describe Your Action"></textarea>        <br>
+        <input type='submit' value='Upload Your Action'>
+    </form>
+    <hr>
+
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        {% if post.author %}
+            <small>Written By: {{ post.author }} on {{ post.date_posted }}</small>
+        {% else %}
+            <small>Written on {{ post.date_posted }}, the author is unknown.</small>
+        {% endif %}
+        <br>
+        <p style="white-space: pre-wrap">{{ post.content }}</p>
+        <a class="btn btn-success" href='#'>What would you like to do?</a>
+        <br>
+        <br>
+        <br>
+        <br>
+    {% endfor%}
+
+{% endblock %}
